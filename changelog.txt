@@ -1,4 +1,8 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+  Bugfixes:
+    - First time uploading a mod in 7 years. Fixed some basic stuff.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.0
   Major Features:
     - Initial release of modified version.
