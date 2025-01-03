@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 2025-01-03
+  Features:
+    - Added refined concrete foundry recipe
+---------------------------------------------------------------------------------------------------
 Version: 1.0.1
   Bugfixes:
     - First time uploading a mod in 7 years. Fixed some basic stuff.
