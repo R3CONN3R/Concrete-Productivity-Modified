@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.0
+Date: 2025-10-22
+  Features:
+    - Now affects all recipes regardless of what mod adds it, as long as it produces only concrete.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.1
 Date: 2025-02-24
   Bugfixes:
