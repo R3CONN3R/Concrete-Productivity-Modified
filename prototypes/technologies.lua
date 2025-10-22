@@ -10,7 +10,7 @@ for _, recipe in pairs(data.raw["recipe"]) do
 	if recipe.results ~= nil then
 		if #recipe.results == 1 then
 			for _, result in pairs(recipe.results) do
-				if result.name == ("concrete" or result.name == "refined-concrete") and recipe.category ~= "recycling" then
+				if (result.name == "concrete" or result.name == "refined-concrete") and recipe.category ~= "recycling" then
 					table.insert(effects_with_concrete, {
 						type = "change-recipe-productivity",
 						recipe = recipe.name,
