@@ -1,29 +1,31 @@
-local space_age_enabled = data.raw["recipe"]["concrete-from-molten-iron"] ~= nil
-local dectorio_enabled = data.raw["recipe"]["dect-concrete-grid"] ~= nil
-
-local effects_with_concrete = {
-	{
-		type = "change-recipe-productivity",
-		recipe = "concrete",
-		change = 0.25
-	},
-	{
-		type = "change-recipe-productivity",
-		recipe = "refined-concrete",
-		change = 0.25
-	}
-}
-
-if space_age_enabled then
-	table.insert(effects_with_concrete, {
-		type = "change-recipe-productivity",
-		recipe = "concrete-from-molten-iron",
-		change = 0.25
-	}
-	)
+function slog(text)
+	log(serpent.block(text))
 end
 
-if dectorio_enabled then
+local effects_with_concrete = {}
+
+slog("CONC_PROD CHECKING RECIPES")
+
+for _, recipe in pairs(data.raw["recipe"]) do
+	if recipe.results ~= nil then
+		if #recipe.results == 1 then
+			for _, result in pairs(recipe.results) do
+				if result.name == ("concrete" or result.name == "refined-concrete") and recipe.category ~= "recycling" then
+					table.insert(effects_with_concrete, {
+						type = "change-recipe-productivity",
+						recipe = recipe.name,
+						change = 0.25
+					})
+					slog("CONC_PROD_FOUND_RECIPE = " .. recipe.name)
+				end
+			end
+		end
+	end
+end
+
+slog("CONC_PROD_DONE_ADDING_RECIPES")
+
+if mods["dectorio"] then
 	table.insert(effects_with_concrete, {
 		type = "change-recipe-productivity",
 		recipe = "dect-concrete-grid",

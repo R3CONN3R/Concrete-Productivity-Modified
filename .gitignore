@@ -1,4 +1,5 @@
 .vscode/*
+tmp/*
 !.vscode/extensions.json
 !.vscode/settings.json
 
